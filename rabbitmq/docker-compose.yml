@@ -1,0 +1,19 @@
+version: '2'
+services:
+  rabbitmq:
+    image: registry.jtest.com/mid/rabbitmq:3.6.15
+    container_name: rabbit
+    restart: always
+    volumes:
+      - /data/rabbitmq:/var/lib/rabbitmq
+      - /data/rabbitmq_log:/var/log/rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    network_mode: bridge
+    environment:
+      - HOSTNAME=rabbit01
+      - RABBITMQ_USER=admin
+      - RABBITMQ_PASS=admin
+      - RABBITMQ_ERLANG_COOKIE=IomxctiIUAeEs6TzA8MS
+
